@@ -1,8 +1,6 @@
-Claro — corrigi os erros de HTML, organizei as seções, combinei tons de roxo, acrescentei os benefícios da empatia e coloquei um botão de curtir que funciona com JavaScript.
-
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,6 +50,16 @@ Claro — corrigi os erros de HTML, organizei as seções, combinei tons de roxo
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(70, 30, 100, 0.12);
             border-left: 6px solid #8e44ad;
+        }
+
+        /* Estilo da Imagem Adicionada */
+        .imagem-destaque {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: block;
         }
 
         h2 {
@@ -151,6 +159,9 @@ Claro — corrigi os erros de HTML, organizei as seções, combinei tons de roxo
     <main>
 
         <section>
+            <!-- Imagem adicionada com classe para estilização -->
+            <img src="https://media.istockphoto.com/id/2208901213/vector/group-of-diverse-people-talking-chatting-bonding.jpg?s=612x612&w=0&k=20&c=syhPCQmGhtqlGWrxfDRQDeX7fzT4qoa_gkZStCdQEQk=" alt="Ilustração de empatia e conexão humana" class="imagem-destaque">
+
             <h2>🌷 O que é Empatia?</h2>
 
             <p>
@@ -295,4 +306,3 @@ Claro — corrigi os erros de HTML, organizei as seções, combinei tons de roxo
 
 </body>
 </html>
-```
