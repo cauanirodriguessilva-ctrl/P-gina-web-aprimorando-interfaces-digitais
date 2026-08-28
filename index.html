@@ -1,256 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empatia & Cooperação</title>
-  <style>
-    
+  <title>Empatia e Cooperação</title>
+  
+<style>
     :root {
-      --bg-color: #f4f0fa;
-      --card-bg: #ffffff;
-      --text-color: #332447;
-      --accent-color: #6b3ba7;
-      --accent-hover: #522b85;
-      --border-color: #dcd0ee;
-      --shadow: 0 4px 15px rgba(107, 59, 167, 0.15);
-      --like-bg: #f0e6ff;
-      --like-color: #6b3ba7;
+      --bg-primary: #f4f0fa;
+      --bg-card: #ffffff;
+      --text-primary: #2d1b4e;
+      --text-secondary: #5a4b7c;
+      --purple-accent: #7c3aed;
+      --purple-hover: #6d28d9;
+      --border-color: #e9d5ff;
+      --shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
     }
 
-    
-    body.dark-mode {
-      --bg-color: #160f24;
-      --card-bg: #241738;
-      --text-color: #ebdcf9;
-      --accent-color: #9d5ce5;
-      --accent-hover: #b47bee;
-      --border-color: #3d275e;
-      --shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      --like-bg: #321d4d;
-      --like-color: #c084fc;
+    [data-theme="dark"] {
+      --bg-primary: #0f0a1c;
+      --bg-card: #1a122c;
+      --text-primary: #f3e8ff;
+      --text-secondary: #c084fc;
+      --purple-accent: #9333ea;
+      --purple-hover: #a855f7;
+      --border-color: #3b0764;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
       line-height: 1.6;
-      padding-bottom: 40px;
-    }
-
-    header {
-      background-color: var(--card-bg);
-      border-bottom: 2px solid var(--border-color);
-      padding: 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: var(--shadow);
-    }
-
-    header h1 {
-      color: var(--accent-color);
-      margin-bottom: 10px;
-    }
-
-    .theme-toggle-btn {
-      background-color: var(--accent-color);
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .theme-toggle-btn:hover {
-      background-color: var(--accent-hover);
+      padding: 2rem 1rem;
     }
 
     .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
+    header {
       display: flex;
-      flex-direction: column;
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-body {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
       justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+   border-bottom: 2px solid var(--border-color);
     }
 
-    .quote {
-      font-style: italic;
-      font-size: 1.05rem;
-      margin-bottom: 15px;
+    h1 {
+      color: var(--purple-accent);
+      font-size: 2rem;
     }
 
-    .author {
-      font-weight: bold;
-      color: var(--accent-color);
-      text-align: right;
-      margin-bottom: 15px;
+    .theme-toggle-btn {
+      background-color: var(--purple-accent);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+     border-radius: 20px;
+      cursor: pointer;
+    font-weight: bold;
     }
 
-    
-    .like-btn {
-      background-color: var(--like-bg);
-      color: var(--like-color);
+    .theme-toggle-btn:hover {
+      background-color: var(--purple-hover);
+    }
+
+    article {
+      background-color: var(--bg-card);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
       border: 1px solid var(--border-color);
-      padding: 8px 15px;
-      border-radius: 15px;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: var(--purple-accent);
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: var(--text-primary);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .like-btn {
+      background-color: transparent;
+      border: 2px solid var(--purple-accent);
+      color: var(--purple-accent);
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
       cursor: pointer;
       font-weight: bold;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      align-self: flex-start;
-      transition: transform 0.1s ease, background-color 0.3s;
-    }
-
-    .like-btn:active {
-      transform: scale(0.95);
+      gap: 0.5rem;
     }
 
     .like-btn.liked {
-      background-color: var(--accent-color);
-      color: #ffffff;
+      background-color: var(--purple-accent);
+      color: white;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9rem;
-      opacity: 0.8;
+    .like-count {
+      color: var(--text-secondary);
+      font-weight: 600;
     }
   </style>
 </head>
- <body>
+<body>
 
-  <header>
-    <h1>Empatia & Cooperação</h1>
-    <p>Conectando pessoas através do respeito e do apoio mútuo</p>
-    <br>
-    <button class="theme-toggle-btn" id="themeBtn">Modo Escuro</button>
-  </header>
+  <div class="container">
+    <header>
+      <h1>Conexão Humana</h1>
+      <button class="theme-toggle-btn" id="themeToggle">Modo Escuro</button>
+    </header>
 
-  <main class="container">
-    <div class="grid">
+    <main>
+      <article>
+        <h2>A Força da Empatia e da Cooperação</h2>
+        
+        <p>A empatia é a capacidade de se colocar no lugar do outro, compreendendo suas emoções, perspectiva e sentimentos. Quando praticamos a empatia, deixamos de lado os julgamentos precipitados e nos abrimos para entender a realidade alheia. Ela é a ponte que conecta indivíduos e constrói laços profundos de confiança e respeito.</p>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80" alt="Mãos unidas">
-        <div class="card-body">
-          <p class="quote">"Se caminhos individuais nos levam longe, a cooperação nos leva além."</p>
-          <p class="author">— Trabalho em Equipe</p>
-          <button class="like-btn" onclick="toggleLike(this)">
-            ♥ Curtir (<span class="like-count">12</span>)
-          </button>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=600&q=80" alt="Pessoas conversando">
-        <div class="card-body">
-          <p class="quote">"Empatia é colocar-se no lugar do outro para compreender sua dor, sem julgar sua jornada."</p>
-          <p class="author">— Acolhimento</p>
-          <button class="like-btn" onclick="toggleLike(this)">
-            ♥ Curtir (<span class="like-count">24</span>)
-          </button>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Grupo de amigos">
-        <div class="card-body">
-          <p class="quote">"Nenhum de nós é tão inteligente quanto todos nós juntos."</p>
-          <p class="author">— Ken Blanchard</p>
-          <button class="like-btn" onclick="toggleLike(this)">
-            ♥ Curtir (<span class="like-count">18</span>)
-          </button>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=600&q=80" alt="Pessoas se ajudando">
-        <div class="card-body">
-          <p class="quote">"Ajudar o próximo é o ato mais puro de empatia que transforma quem recebe e quem dá."</p>
-          <p class="author">— Solidariedade</p>
-          <button class="like-btn" onclick="toggleLike(this)">
-            ♥ Curtir (<span class="like-count">31</span>)
-          </button>
-        </div>
-      </article>
-
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2026 — Criado com foco em Empatia e Cooperação</p>
-  </footer>
-
-  <script>
-    
-    const themeBtn = document.getElementById('themeBtn');
-    
-    themeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      
-      if (document.body.classList.contains('dark-mode')) {
-        themeBtn.textContent = 'Modo Claro';
-      } else {
-        themeBtn.textContent = 'Modo Escuro';
-      }
-    });
-
-    
-    function toggleLike(button) {
-      const countSpan = button.querySelector('.like-count');
-      let currentLikes = parseInt(countSpan.textContent);
-
-      if (button.classList.contains('liked')) {
-        button.classList.remove('liked');
-        countSpan.textContent = currentLikes - 1;
-      } else {
-        button.classList.add('liked');
-        countSpan.textContent = currentLikes + 1;
-      }
-    }
-  </script>
-
-</body>
-</html>
+        <img class="hero-image" src="https://images.unsplash
