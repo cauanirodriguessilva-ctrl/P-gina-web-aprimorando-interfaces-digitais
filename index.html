@@ -1,411 +1,256 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
+    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empatia e Compreensão</title>
-
-    <style>
-        
-        :root {
-            
-            --bg-primary: #F8F5FC;
-            --bg-card: #FFFFFF;
-            --text-primary: #2D2338;
-            --text-secondary: #5C5268;
-            --accent-purple: #7C3AED;
-            --accent-hover: #6D28D9;
-            --accent-light: #EDE9FE;
-            --border-color: #E9D5FF;
-            --shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
-            --header-bg: linear-gradient(135deg, #7C3AED, #9333EA);
-            --header-text: #FFFFFF;
-        }
-
-        body.dark-mode {
-            
-            --bg-primary: #0F0C1B;
-            --bg-card: #1A162B;
-            --text-primary: #F3E8FF;
-            --text-secondary: #C4B5FD;
-            --accent-purple: #A78BFA;
-            --accent-hover: #C4B5FD;
-            --accent-light: #2E1065;
-            --border-color: #4C1D95;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            --header-bg: linear-gradient(135deg, #2E1065, #4C1D95);
-            --header-text: #F3E8FF;
-        }
-
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            padding-bottom: 40px;
-        }
-
-        header {
-            background: var(--header-bg);
-            color: var(--header-text);
-            text-align: center;
-            padding: 2.5rem 1rem;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
-
-        .theme-toggle-container {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-        }
-
-        #themeToggle {
-          background-color: rgba(255, 255, 255, 0.2);
-            color: #FFFFFF;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            backdrop-filter: blur(5px);
-        }
-
-        #themeToggle:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        
-        main {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        section {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-        padding: 2rem;
-            margin-bottom: 2rem;
-         box-shadow: var(--shadow);
-        }
-
-        h2 {
-            color: var(--accent-purple);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-
-        p:last-child {
-            margin-bottom: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empatia & Cooperação</title>
+  <style>
+    
+    :root {
+      --bg-color: #f4f0fa;
+      --card-bg: #ffffff;
+      --text-color: #332447;
+      --accent-color: #6b3ba7;
+      --accent-hover: #522b85;
+      --border-color: #dcd0ee;
+      --shadow: 0 4px 15px rgba(107, 59, 167, 0.15);
+      --like-bg: #f0e6ff;
+      --like-color: #6b3ba7;
+    }
 
     
-        .imagem-banner {
-            margin: 1.5rem 0;
-            text-align: center;
-            overflow: hidden;
-            border-radius: 12px;
-        }
+    body.dark-mode {
+      --bg-color: #160f24;
+      --card-bg: #241738;
+      --text-color: #ebdcf9;
+      --accent-color: #9d5ce5;
+      --accent-hover: #b47bee;
+      --border-color: #3d275e;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      --like-bg: #321d4d;
+      --like-color: #c084fc;
+    }
 
-        .imagem-banner img {
-            width: 100%;
-            max-height: 380px;
-            object-fit: cover;
-            border-radius: 12px;
-            display: block;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
 
-        figcaption {
-            margin-top: 0.8rem;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--accent-purple);
-            font-weight: 500;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding-bottom: 40px;
+    }
 
-        
-        .beneficios {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1rem;
-        }
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 2px solid var(--border-color);
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
 
-        .beneficio {
-            background-color: var(--accent-light);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.2rem;
-            text-align: center;
-        }
+    header h1 {
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
 
-        .beneficio .icone {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
+    .theme-toggle-btn {
+      background-color: var(--accent-color);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-        .beneficio h3 {
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-        }
+    .theme-toggle-btn:hover {
+      background-color: var(--accent-hover);
+    }
 
-        .beneficio p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-        
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
 
-        ul li {
-            position: relative;
-            padding-left: 28px;
-            margin-bottom: 0.8rem;
-            color: var(--text-secondary);
-        }
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
 
-        ul li::before {
-            content: "•";
-            color: var(--accent-purple);
-            font-size: 1.8rem;
-            position: absolute;
-            left: 8px;
-            top: -6px;
-        }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
 
-        ul li strong {
-            color: var(--text-primary);
-        }
+    .card-body {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-        .curtir {
-            text-align: center;
-            margin: 2.5rem 0 1rem 0;
-        }
+    .quote {
+      font-style: italic;
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+    }
 
-        #likeButton {
-            background-color: var(--bg-card);
-            color: var(--accent-purple);
-            border: 2px solid var(--accent-purple);
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-          font-weight: bold;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
+    .author {
+      font-weight: bold;
+      color: var(--accent-color);
+      text-align: right;
+      margin-bottom: 15px;
+    }
 
-        #likeButton:hover {
-            background-color: var(--accent-purple);
-            color: #FFFFFF;
-            transform: scale(1.05);
-        }
+    
+    .like-btn {
+      background-color: var(--like-bg);
+      color: var(--like-color);
+      border: 1px solid var(--border-color);
+      padding: 8px 15px;
+      border-radius: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      align-self: flex-start;
+      transition: transform 0.1s ease, background-color 0.3s;
+    }
 
-        #likeButton.curtido {
-            background-color: var(--accent-purple);
-            color: #FFFFFF;
-        }
+    .like-btn:active {
+      transform: scale(0.95);
+    }
 
-     footer {
-            text-align: center;
-            padding: 2rem 1rem 1rem 1rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 2rem;
-        }
+    .like-btn.liked {
+      background-color: var(--accent-color);
+      color: #ffffff;
+    }
 
-        footer p:first-child {
-            font-weight: bold;
-            color: var(--text-primary);
-        }
-    </style>
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
 </head>
+ <body>
 
-<body>
+  <header>
+    <h1>Empatia & Cooperação</h1>
+    <p>Conectando pessoas através do respeito e do apoio mútuo</p>
+    <br>
+    <button class="theme-toggle-btn" id="themeBtn">Modo Escuro</button>
+  </header>
 
-    <header>
-        <div class="theme-toggle-container">
-            <button id="themeToggle" onclick="alternarTema()">🌙 Modo Escuro</button>
+  <main class="container">
+    <div class="grid">
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80" alt="Mãos unidas">
+        <div class="card-body">
+          <p class="quote">"Se caminhos individuais nos levam longe, a cooperação nos leva além."</p>
+          <p class="author">— Trabalho em Equipe</p>
+          <button class="like-btn" onclick="toggleLike(this)">
+            ♥ Curtir (<span class="like-count">12</span>)
+          </button>
         </div>
-        <h1>💜 Empatia e Compreensão</h1>
-        <p>Construindo relações baseadas em respeito, escuta e cooperação.</p>
-    </header>
+      </article>
 
-    <main>
-
-        <section>
-            <h2>🌷 O que é Empatia?</h2>
-            <p>
-                Empatia é a capacidade de compreender os sentimentos, pensamentos
-                e perspectivas de outra pessoa. Isso significa tentar enxergar
-                uma situação pelo ponto de vista do outro, sem julgamentos
-                precipitados.
-            </p>
-
-            <figure class="imagem-banner">
-                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80"
-                     alt="Pessoas se apoiando e colaborando em ambiente acolhedor">
-                <figcaption>"Colocar-se no lugar do outro é o primeiro passo para o respeito mútuo."</figcaption>
-            </figure>
-
-            <p>
-                Praticar a empatia ajuda a melhorar a comunicação, diminuir
-                conflitos e criar relacionamentos mais saudáveis e significativos.
-            </p>
-        </section>
-
-        <section>
-            <h2>🤝 A Importância da Cooperação</h2>
-            <p>
-                Cooperação é trabalhar em conjunto para alcançar um objetivo
-                comum. Quando as pessoas colaboram, compartilham conhecimentos,
-                ideias e responsabilidades.
-            </p>
-            <p>
-                A combinação entre empatia e cooperação cria ambientes onde
-                todos podem se sentir respeitados, ouvidos e valorizados.
-            </p>
-        </section>
-
-        <section>
-            <h2>✨ Benefícios da Empatia</h2>
-            <div class="beneficios">
-                <div class="beneficio">
-                    <div class="icone">💬</div>
-                    <h3>Boa Comunicação</h3>
-                    <p>Ajuda a diminuir mal-entendidos e facilita conversas mais claras e respeitosas.</p>
-                </div>
-                <div class="beneficio">
-                    <div class="icone">💜</div>
-                    <h3>Relações Saudáveis</h3>
-                    <p>Fortalece a confiança, o respeito e o carinho entre as pessoas.</p>
-                </div>
-                <div class="beneficio">
-                    <div class="icone">🕊️</div>
-                    <h3>Menos Conflitos</h3>
-                    <p>Compreender diferentes pontos de vista ajuda a resolver problemas de maneira mais tranquila.</p>
-                </div>
-                <div class="beneficio">
-                    <div class="icone">🌎</div>
-                    <h3>Respeito às Diferenças</h3>
-                    <p>Incentiva a valorização de diferentes opiniões, experiências e formas de pensar.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>🌱 Como Desenvolver a Empatia e a Cooperação?</h2>
-            <ul>
-                <li><strong>Pratique a escuta ativa:</strong> preste atenção ao que a outra pessoa está dizendo sem interromper.</li>
-                <li><strong>Evite julgamentos:</strong> procure entender os motivos do outro antes de tirar conclusões.</li>
-                <li><strong>Respeite as diferenças:</strong> cada pessoa possui experiências, ritmos e sentimentos únicos.</li>
-                <li><strong>Demonstre compreensão:</strong> mostre com palavras e gestos que você se importa com os sentimentos do outro.</li>
-                <li><strong>Coopere no dia a dia:</strong> ofereça ajuda espontânea e trabalhe em equipe para alcançar objetivos comuns.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>💡 Uma Pequena Atitude Pode Fazer a Diferença</h2>
-            <p>
-                Um simples gesto de atenção, uma palavra de apoio ou alguns
-                minutos dedicados a ouvir alguém podem transformar o dia dessa
-                pessoa. A empatia e a cooperação começam quando decidimos compreender antes
-                de julgar e agir juntos em prol do bem comum.
-            </p>
-        </section>
-
-        <div class="curtir">
-            <button id="likeButton" onclick="alternarCurtida()">
-                ❤️ Curtir <span id="contador">0</span>
-            </button>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=600&q=80" alt="Pessoas conversando">
+        <div class="card-body">
+          <p class="quote">"Empatia é colocar-se no lugar do outro para compreender sua dor, sem julgar sua jornada."</p>
+          <p class="author">— Acolhimento</p>
+          <button class="like-btn" onclick="toggleLike(this)">
+            ♥ Curtir (<span class="like-count">24</span>)
+          </button>
         </div>
+      </article>
 
-    </main>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Grupo de amigos">
+        <div class="card-body">
+          <p class="quote">"Nenhum de nós é tão inteligente quanto todos nós juntos."</p>
+          <p class="author">— Ken Blanchard</p>
+          <button class="like-btn" onclick="toggleLike(this)">
+            ♥ Curtir (<span class="like-count">18</span>)
+          </button>
+        </div>
+      </article>
 
-    <footer>
-        <p>💜 Empatia e Compreensão</p>
-        <p>Respeito • Cooperação • Escuta • Solidariedade</p>
-    </footer>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=600&q=80" alt="Pessoas se ajudando">
+        <div class="card-body">
+          <p class="quote">"Ajudar o próximo é o ato mais puro de empatia que transforma quem recebe e quem dá."</p>
+          <p class="author">— Solidariedade</p>
+          <button class="like-btn" onclick="toggleLike(this)">
+            ♥ Curtir (<span class="like-count">31</span>)
+          </button>
+        </div>
+      </article>
 
-    <script>
-        let curtidas = 0;
-        let estaCurtido = false;
+    </div>
+  </main>
 
-        function alternarCurtida() {
-            const botao = document.getElementById("likeButton");
-            const contador = document.getElementById("contador");
+  <footer>
+    <p>&copy; 2026 — Criado com foco em Empatia e Cooperação</p>
+  </footer>
 
-            if (!estaCurtido) {
-                curtidas++;
-                botao.classList.add("curtido");
-            } else {
-                curtidas--;
-                botao.classList.remove("curtido");
-            }
+  <script>
+    
+    const themeBtn = document.getElementById('themeBtn');
+    
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      
+      if (document.body.classList.contains('dark-mode')) {
+        themeBtn.textContent = 'Modo Claro';
+      } else {
+        themeBtn.textContent = 'Modo Escuro';
+      }
+    });
 
-            estaCurtido = !estaCurtido;
-            contador.textContent = curtidas;
-        }
+    
+    function toggleLike(button) {
+      const countSpan = button.querySelector('.like-count');
+      let currentLikes = parseInt(countSpan.textContent);
 
-        function alternarTema() {
-            const body = document.body;
-            const themeBtn = document.getElementById("themeToggle");
-
-            body.classList.toggle("dark-mode");
-
-            const isDark = body.classList.contains("dark-mode");
-            themeBtn.textContent = isDark ? "☀️ Modo Claro" : "🌙 Modo Escuro";
-
-            localStorage.setItem("theme", isDark ? "dark" : "light");
-        }
-        document.addEventListener("DOMContentLoaded", () => {
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme === "dark") {
-                document.body.classList.add("dark-mode");
-                document.getElementById("themeToggle").textContent = "☀️ Modo Claro";
-            }
-        });
-    </script>
+      if (button.classList.contains('liked')) {
+        button.classList.remove('liked');
+        countSpan.textContent = currentLikes - 1;
+      } else {
+        button.classList.add('liked');
+        countSpan.textContent = currentLikes + 1;
+      }
+    }
+  </script>
 
 </body>
 </html>
