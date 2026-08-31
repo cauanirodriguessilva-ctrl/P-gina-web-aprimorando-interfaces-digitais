@@ -1,154 +1,307 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empatia e Cooperação: Transformando Conexões</title>
+    <style>
+        
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f3e8ff 0%, #e0aaff 50%, #c77dff 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #2b1b3d;
+            --text-secondary: #5a4b6e;
+            --primary-color: #7b2cbf;
+            --primary-hover: #9d4edd;
+            --accent-bg: #f3e8ff;
+            --border-color: #e0aaff;
+            --shadow: 0 20px 40px rgba(123, 44, 191, 0.15);
+            --quote-bg: linear-gradient(90deg, #7b2cbf, #9d4edd);
+        }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empatia e Cooperação</title>
-  
-<style>
-    :root {
-      --bg-primary: #f4f0fa;
-      --bg-card: #ffffff;
-      --text-primary: #2d1b4e;
-      --text-secondary: #5a4b7c;
-      --purple-accent: #7c3aed;
-      --purple-hover: #6d28d9;
-      --border-color: #e9d5ff;
-      --shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
-    }
+        [data-theme="dark"] {
+            --bg-gradient: linear-gradient(135deg, #0f051d 0%, #1a0c2e 50%, #240046 100%);
+            --card-bg: rgba(29, 14, 46, 0.92);
+            --text-color: #f4effa;
+            --text-secondary: #c8b6e2;
+            --primary-color: #c77dff;
+            --primary-hover: #e0aaff;
+            --accent-bg: #2c1545;
+            --border-color: #3c096c;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            --quote-bg: linear-gradient(90deg, #9d4edd, #c77dff);
+        }
 
-    [data-theme="dark"] {
-      --bg-primary: #0f0a1c;
-      --bg-card: #1a122c;
-      --text-primary: #f3e8ff;
-      --text-secondary: #c084fc;
-      --purple-accent: #9333ea;
-      --purple-hover: #a855f7;
-      --border-color: #3b0764;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background 0.4s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      padding: 2rem 1rem;
-    }
+        .container {
+            max-width: 850px;
+            width: 100%;
+            background-color: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+        
+        .header-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2.5rem;
-      padding-bottom: 1rem;
-   border-bottom: 2px solid var(--border-color);
-    }
+        .theme-toggle {
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
 
-    h1 {
-      color: var(--purple-accent);
-      font-size: 2rem;
-    }
+        .theme-toggle:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
 
-    .theme-toggle-btn {
-      background-color: var(--purple-accent);
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-     border-radius: 20px;
-      cursor: pointer;
-    font-weight: bold;
-    }
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
 
-    .theme-toggle-btn:hover {
-      background-color: var(--purple-hover);
-    }
+        .destaque-container {
+            position: relative;
+            margin: 25px 0;
+            padding: 20px;
+            background: var(--quote-bg);
+            border-radius: 12px;
+            color: #ffffff;
+            text-align: center;
+        }
 
-    article {
-      background-color: var(--bg-card);
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border-color);
-      margin-bottom: 2rem;
-    }
+        .destaque {
+            font-size: 1.25rem;
+            font-weight: 500;
+            font-style: italic;
+        }
 
-    h2 {
-      margin-bottom: 1rem;
-      color: var(--purple-accent);
-    }
+        .intro-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 20px 0 30px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
 
-    p {
-      margin-bottom: 1.2rem;
-      color: var(--text-primary);
-    }
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .hero-image {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-    }
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            font-size: 1.05rem;
+        }
 
-    .actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border-color);
-    }
+        
+        .beneficios-list {
+            list-style: none;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
 
-    .like-btn {
-      background-color: transparent;
-      border: 2px solid var(--purple-accent);
-      color: var(--purple-accent);
-      padding: 0.6rem 1.2rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+        .beneficios-list li {
+            background: var(--accent-bg);
+            padding: 16px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            border-left: 4px solid var(--primary-color);
+            font-size: 0.98rem;
+        }
 
-    .like-btn.liked {
-      background-color: var(--purple-accent);
-      color: white;
-    }
+        .beneficios-list li::before {
+            content: "✦";
+            margin-right: 12px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
 
-    .like-count {
-      color: var(--text-secondary);
-      font-weight: 600;
-    }
-  </style>
+        .actions {
+            margin-top: 45px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .like-btn {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .like-btn:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .like-btn.active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4);
+        }
+
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .intro-img {
+                height: 240px;
+            }
+            .beneficios-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <h1>Conexão Humana</h1>
-      <button class="theme-toggle-btn" id="themeToggle">Modo Escuro</button>
-    </header>
+    <div class="container">
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeBtn" aria-label="Alternar Tema">
+                <span id="themeIcon">🌙</span> <span id="themeText">Modo Escuro</span>
+            </button>
+        </div>
 
-    <main>
-      <article>
-        <h2>A Força da Empatia e da Cooperação</h2>
+        <h1>Empatia e Cooperação</h1>
         
-        <p>A empatia é a capacidade de se colocar no lugar do outro, compreendendo suas emoções, perspectiva e sentimentos. Quando praticamos a empatia, deixamos de lado os julgamentos precipitados e nos abrimos para entender a realidade alheia. Ela é a ponte que conecta indivíduos e constrói laços profundos de confiança e respeito.</p>
+        <div class="destaque-container">
+            <p class="destaque">"Estar presente para o outro é o primeiro passo para construir pontes onde antes existiam muros."</p>
+        </div>
 
-        <img class="hero-image" src="https://images.unsplash
+        <img class="intro-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80" alt="Pessoas unidas demonstrando cooperação em grupo">
+
+        <h2>O Poder da Empatia</h2>
+        <p>A empatia vai além de simplesmente "se colocar no lugar do outro". Trata-se da capacidade de escutar ativamente, sem julgamentos prévios, compreendendo as emoções e necessidades alheias. Quando exercitamos a empatia, criamos um espaço seguro para o diálogo e fortalecemos os laços sociais.</p>
+
+        <h2>A Força da Cooperação</h2>
+        <p>Enquanto a empatia nos conecta emocionalmente, a cooperação nos mobiliza para a ação conjunta. Trabalhar em equipe dividindo responsabilidades e somando talentos nos permite alcançar metas complexas que seriam impossíveis de atingir individualmente.</p>
+
+        <h2>Principais Benefícios</h2>
+        <ul class="beneficios-list">
+            <li>Melhora a convivência diária e a inteligência emocional.</li>
+            <li>Fortalece o trabalho em equipe e a eficiência coletiva.</li>
+            <li>Reduz significativamente conflitos e preconceitos.</li>
+            <li>Promove amizades duradouras e conexões genuínas.</li>
+            <li>Desenvolve a comunicação não-violenta e a escuta ativa.</li>
+            <li>Cria ambientes seguros na escola, trabalho e comunidade.</li>
+            <li>Incentiva a solidariedade e a resolução criativa de problemas.</li>
+        </ul>
+
+        <div class="actions">
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Encontrou inspiração neste conteúdo?</p>
+            <button class="like-btn" id="likeBtn">
+                ♥ <span id="btnText">Curtir</span> <span id="likeCount">(0)</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Lógica para Alternar Modo Escuro / Claro
+        const themeBtn = document.getElementById('themeBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        themeBtn.addEventListener('click', () => {
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            
+            if (isDark) {
+                document.body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Modo Escuro';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Modo Claro';
+            }
+        });
+
+        // Lógica do Botão de Curtir
+        const likeBtn = document.getElementById('likeBtn');
+        const likeCount = document.getElementById('likeCount');
+        const btnText = document.getElementById('btnText');
+        
+        let count = 0;
+        let liked = false;
+
+        likeBtn.addEventListener('click', () => {
+            if (!liked) {
+                count++;
+                liked = true;
+                likeBtn.classList.add('active');
+                btnText.textContent = 'Curtido';
+            } else {
+                count--;
+                liked = false;
+                likeBtn.classList.remove('active');
+                btnText.textContent = 'Curtir';
+            }
+            likeCount.textContent = `(${count})`;
+        });
+    </script>
+</body>
+</html>
