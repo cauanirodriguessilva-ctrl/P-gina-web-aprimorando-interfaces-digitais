@@ -21,9 +21,7 @@
             likeBtn.innerHTML = `💜 Curtir <span id="likeCount">${formatNumber(likes)}</span>`;
         }
 
-
-
-</body>
+ </body>
 
 </html>
     
