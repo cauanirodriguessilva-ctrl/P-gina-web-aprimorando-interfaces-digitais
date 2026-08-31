@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empatia & Cooperação Humana</title>
-    <style>
-        
+   <style>
         :root {
             --bg-color: #f3e8ff;
             --card-bg: #ffffff;
             --primary: #8b5cf6;         
             --primary-hover: #7c3aed;
             --accent: #ec4899;          
-            --text-color: #790e8c;
-            --text-secondary: #591d95;
-            --shadow: rgba(139, 92, 246, 0.25);
+            --text-color: #2e1065;
+            --text-secondary: #4c1d95;
+            --shadow: rgba(139, 92, 246, 0.15);
             --border-color: #e9d5ff;
         }
 
@@ -23,18 +22,18 @@
             --card-bg: #160d29;
             --primary: #a855f7;
             --primary-hover: #c084fc;
-            --accent: #3f54f4;
+            --accent: #ec4899;
             --text-color: #f5f3ff;
             --text-secondary: #ddd6fe;
-            --shadow: rgba(168, 85, 247, 0.4);
-            --border-color: #0f0213;
+            --shadow: rgba(168, 85, 247, 0.3);
+            --border-color: #2e1065;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
         }
 
         body {
@@ -44,14 +43,14 @@
             display: flex;
             justify-content: center;
             padding: 20px;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         .container {
-            max-width: 850px;
+            max-width: 900px;
             width: 100%;
             background: var(--card-bg);
-            padding: 40px;
+            padding: 45px;
             border-radius: 24px;
             box-shadow: 0 15px 35px var(--shadow);
             border: 1px solid var(--border-color);
@@ -61,8 +60,8 @@
         header {
             text-align: center;
             border-bottom: 2px solid var(--border-color);
-            padding-bottom: 25px;
-            margin-bottom: 35px;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
             position: relative;
         }
 
@@ -73,39 +72,38 @@
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 20px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             box-shadow: 0 4px 12px var(--shadow);
         }
 
         .theme-toggle:hover {
-            opacity: 0.9;
+            opacity: 0.95;
             transform: translateY(-2px);
         }
 
         h1 {
-            font-size: 2.4rem;
-            margin-top: 15px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
+            font-size: 2.6rem;
+            margin-top: 20px;
+           background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
             color: var(--text-secondary);
-            font-size: 1.15rem;
-            margin-top: 8px;
+            font-size: 1.2rem;
+            margin-top: 10px;
             font-weight: 500;
         }
 
         section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         h2 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             margin-bottom: 20px;
             color: var(--primary);
             display: flex;
@@ -114,44 +112,76 @@
         }
 
         p {
-            color: var(--text-secondary);
-            margin-bottom: 15px;
+            color: var(--text-color);
+            margin-bottom: 18px;
             font-size: 1.05rem;
         }
 
         .section-image {
             width: 100%;
-            height: 320px;
+            height: 350px;
             object-fit: cover;
             border-radius: 16px;
-            margin: 15px 0 25px 0;
-            box-shadow: 0 8px 20px var(--shadow);
+            margin: 20px 0 30px 0;
+            box-shadow: 0 8px 24px var(--shadow);
         }
 
         .grid-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
         }
 
         .card {
             background: var(--bg-color);
-            padding: 24px;
+            padding: 25px;
             border-radius: 16px;
             border-top: 5px solid var(--primary);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .card h3 {
             color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
         }
 
         .card p {
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             margin-bottom: 0;
+        }
+
+        .benefits-box {
+            background: var(--bg-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 20px;
+            border-left: 5px solid var(--accent);
+        }
+
+        .benefits-box h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .benefits-box ul {
+            list-style-type: none;
+        }
+
+        .benefits-box li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-color);
+        }
+
+        .benefits-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
         }
 
         .actions-list {
@@ -159,45 +189,49 @@
         }
 
         .actions-list li {
-            padding: 15px;
+            padding: 18px;
             background: var(--bg-color);
-            border-radius: 12px;
-            margin-bottom: 10px;
-            color: var(--text-secondary);
-            border-left: 4px solid var(--accent);
+            border-radius: 14px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            border-left: 5px solid var(--primary);
+        }
+
+        .actions-list strong {
+            color: var(--primary);
         }
 
         .like-section {
             text-align: center;
-            padding: 30px;
+            padding: 35px;
             background: var(--bg-color);
             border-radius: 20px;
             margin-top: 40px;
-            border: 1px dashed var(--primary);
+            border: 2px dashed var(--primary);
         }
 
         .like-btn {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             border: none;
-            padding: 14px 32px;
-            font-size: 1.2rem;
+            padding: 16px 36px;
+            font-size: 1.25rem;
             border-radius: 30px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 12px;
             font-weight: bold;
-            box-shadow: 0 6px 18px var(--shadow);
+            box-shadow: 0 6px 20px var(--shadow);
         }
 
-       .like-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 22px var(--shadow);
+        .like-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 25px var(--shadow);
         }
 
         .like-btn:active {
-            transform: scale(0.95);
+            transform: scale(0.97);
         }
 
         .like-btn.liked {
@@ -206,18 +240,18 @@
 
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 500;
         }
 
-        
         @media (max-width: 600px) {
-            .container { padding: 20px; }
-            header { padding-top: 40px; }
-            .theme-toggle { top: -10px; right: 50%; transform: translateX(50%); }
-            .section-image { height: 200px; }
+            .container { padding: 25px 20px; }
+            header { padding-top: 50px; }
+            .theme-toggle { top: 0; right: 50%; transform: translateX(50%); }
+            .section-image { height: 220px; }
+            h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -230,82 +264,107 @@
         <p class="subtitle">Construindo pontes e transformando o mundo através do cuidado mútuo 🤝✨</p>
     </header>
 
-    <main>
-        
+   <main>
         <section>
-            <h2>🧠 O Poder da Empatia</h2>
-            <p>A empatia é a capacidade de se colocar no lugar do outro, compreender suas emoções e ver o mundo sob sua perspectiva. Ela não se limita a sentir compaixão, mas envolve uma conexão real que reduz a solidão e constrói relacionamentos saudáveis.</p>
+            <h2>🧠 O Poder da Empatia Interpessoal</h2>
+            <p>A empatia vai muito além do simples ato de sentir pena ou compaixão por alguém. Trata-se da habilidade cognitiva e emocional de se colocar genuinamente no lugar do outro, buscando compreender suas perspectivas, dores e motivações sem a imposição de julgamentos prévios. Em uma sociedade cada vez mais conectada digitalmente, mas isolada emocionalmente, a empatia atua como o principal antídoto contra a solidão e a polarização.</p>
             
             <img class="section-image" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80" alt="Pessoas se apoiando e conversando com empatia">
 
-            <p>Quando praticamos a empatia interpessoal, reduzimos conflitos, criamos ambientes acolhedores e fortalecemos os laços sociais indispensáveis para a saúde mental coletiva.</p>
+            <p>A prática contínua da empatia transforma a maneira como interagimos em nossos círculos sociais, famílias e ambientes de trabalho. Ela nos permite enxergar a humanidade no outro, reconhecendo que cada indivíduo carrega batalhas invisíveis e experiências de vida únicas.</p>
+
+            <div class="benefits-box">
+                <h3>O que a Empatia gera na prática?</h3>
+                <ul>
+                    <li><strong>Redução de conflitos:</strong> Facilita a resolução pacífica de divergências ao promover a escuta atenta antes da reação.</li>
+                    <li><strong>Fortalecimento do bem-estar mental:</strong> Cria redes de apoio emocional sólidas, reduzindo níveis de ansiedade e isolamento.</li>
+                    <li><strong>Melhoria no ambiente profissional:</strong> Equipes empáticas apresentam maior índice de inovação, segurança psicológica e colaboração.</li>
+                </ul>
+            </div>
         </section>
 
         <section>
-            <h2>🌐 Cooperação: A Base da Evolução</h2>
-            <p>Historicamente, a humanidade só prosperou devido à sua capacidade de trabalhar em equipe. A cooperação é o motor das grandes conquistas científicas, culturais e comunitárias.</p>
+            <h2>🌐 Cooperação: O Motor do Progresso Coletivo</h2>
+            <p>Sob a ótica evolutiva e sociológica, a humanidade não prosperou por conta da força individual, mas sim devido à sua capacidade singular de cooperar em grande escala. A cooperação é o arranjo pelo qual indivíduos combinam seus recursos, conhecimentos e habilidades em prol de um objetivo comum que beneficia todo o grupo.</p>
 
-            
             <img class="section-image" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Grupo de pessoas unindo as mãos em sinal de cooperação">
+
+            <p>A cooperação estruturada permite resolver problemas complexos que seriam impossíveis de superar individualmente, desde grandes descobertas científicas e avanços medicinais até o desenvolvimento sustentável de comunidades locais.</p>
 
             <div class="grid-cards">
                 <div class="card">
-                    <h3>🤝 Solidariedade</h3>
-                    <p>Apoio mútuo em momentos de vulnerabilidade ou desafios coletivos.</p>
+                    <h3>🤝 Solidariedade Ativa</h3>
+                    <p>O ato de estender a mão e disponibilizar recursos ou tempo para apoiar pessoas em situação de vulnerabilidade ou durante momentos de crise coletiva.</p>
                 </div>
                 <div class="card">
-                    <h3>💬 Comunicação</h3>
-                    <p>Diálogo aberto e escuta ativa para resolver problemas em conjunto.</p>
+                    <h3>💬 Comunicação Não-Violenta</h3>
+                    <p>Diálogo baseado na clareza, honestidade e respeito mútuo, focado em encontrar soluções integrativas onde todos os lados são ouvidos.</p>
                 </div>
                 <div class="card">
-                    <h3>🌱 Impacto Social</h3>
-                    <p>Ações individuais que geram benefícios sustentáveis para toda a comunidade.</p>
+                    <h3>🌱 Impacto Social Sustentável</h3>
+                    <p>Pequenas ações individuais alinhadas ao bem comum, capazes de gerar transformações estruturais e duradouras na sociedade.</p>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2>✨ Práticas Diárias de Cooperação</h2>
+            <h2>✨ Práticas Diárias para Transformar seu Entorno</h2>
+            <p>A transformação social começa com pequenas atitudes cotidianas. Confira o que você pode fazer hoje para exercitar a empatia e a cooperação:</p>
+            
             <ul class="actions-list">
-                <li>👂 <strong>Escute sem julgar:</strong> Dedique atenção total quando alguém estiver compartilhando algo.</li>
-                <li>🖐️ <strong>Ofereça ajuda voluntária:</strong> Apoie causas sociais ou ajude um vizinho necessitado.</li>
-                <li>🗣️ <strong>Pratique a gentileza verbal:</strong> Palavras de encorajamento mudam o dia de alguém.</li>
-                <li>🧩 <strong>Valorize a diversidade:</strong> Respeite opiniões e vivências diferentes das suas.</li>
+                <li>
+                    <strong>1. Pratique a Escuta Ativa:</strong> 
+                    Ao conversar com alguém, desligue as distrações (como o celular) e escute com a intenção de compreender, não apenas de responder.
+                </li>
+                <li>
+                    <strong>2. Ofereça Ajuda Prática e Voluntária:</strong> 
+                    Identifique necessidades ao seu redor — seja ajudando um vizinho com tarefas diárias ou participando de projetos sociais em sua comunidade.
+                </li>
+                <li>
+                    <strong>3. Incentive a Gentileza Verbal:</strong> 
+                    Elogios sinceros, palavras de apoio e demonstrações de gratidão têm o poder de mudar positivamente o dia de uma pessoa.
+                </li>
+                <li>
+                    <strong>4. Acolha a Diversidade de Perspectivas:</strong> 
+                    Busque aprender com visões do mundo diferentes das suas. O respeito às diferenças é a base indispensável para qualquer construção cooperativa.
+                </li>
             </ul>
         </section>
 
-        
         <div class="like-section">
-            <p style="margin-bottom: 15px; font-weight: bold; font-size: 1.1rem;">Este conteúdo inspirou você? Apoie essa ideia!</p>
+            <p style="margin-bottom: 15px; font-weight: bold; font-size: 1.15rem;">Este conteúdo inspirou você? Apoie e espalhe essa ideia!</p>
             <button class="like-btn" id="likeBtn" onclick="toggleLike()">
-                💜 Curtir <span id="likeCount">0</span>
+                💜 Curtir <span id="likeCount">1.248</span>
             </button>
         </div>
-   </main>
+    </main>
 
     <footer>
-        <p>Juntos somos mais fortes 🌟 | Projeto focado em conexões humanas</p>
+        <p>Juntos somos mais fortes 🌟 | Projeto focado no fortalecimento das conexões humanas</p>
     </footer>
 </div>
 
 <script>
-    let likes = 0;
+    let likes = 1248;
     let isLiked = false;
 
+    function formatNumber(num) {
+        return num.toLocaleString('pt-BR');
+    }
+
     function toggleLike() {
-        const likeBtn = document.getElementById('likeBtn');
-        const likeCount = document.getElementById('likeCount');
+       const likeBtn = document.getElementById('likeBtn');
 
         if (!isLiked) {
             likes++;
             isLiked = true;
             likeBtn.classList.add('liked');
-            likeBtn.innerHTML = `💚 Curtido! <span id="likeCount">${likes}</span>`;
+            likeBtn.innerHTML = `💚 Curtido! <span id="likeCount">${formatNumber(likes)}</span>`;
         } else {
             likes--;
             isLiked = false;
             likeBtn.classList.remove('liked');
-            likeBtn.innerHTML = `💜 Curtir <span id="likeCount">${likes}</span>`;
+            likeBtn.innerHTML = `💜 Curtir <span id="likeCount">${formatNumber(likes)}</span>`;
         }
     }
 
