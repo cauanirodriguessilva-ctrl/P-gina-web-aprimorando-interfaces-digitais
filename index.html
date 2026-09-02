@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empatia & Cooperação Humana</title>
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body class="tema-escuro">
 
 <div class="container">
-    <header>
-        
+ <header>
         <h1>Empatia & Cooperação Humana</h1>
         <p class="subtitle">Construindo pontes e transformando o mundo através do cuidado mútuo 🤝✨</p>
-  </header>
-   <main>
+    </header>
+
+    <main>
         <section>
             <h2>🧠 O Poder da Empatia Interpessoal</h2>
             <p>A empatia vai muito além do simples ato de sentir pena ou compaixão por alguém. Trata-se da habilidade cognitiva e emocional de se colocar genuinamente no lugar do outro, buscando compreender suas perspectivas, dores e motivações sem a imposição de julgamentos prévios. Em uma sociedade cada vez mais conectada digitalmente, mas isolada emocionalmente, a empatia atua como o principal antídoto contra a solidão e a polarização.</p>
@@ -82,15 +84,46 @@
             </ul>
         </section>
 
-     </div>
-    </main>
- </div>
-
-</body>
-
-</html>
-    <script>
-
- 
- 
         
+        <div class="like-container">
+            <button id="btn-curtir" class="btn-like">
+                <i class="fa-regular fa-heart" id="icone-coracao"></i>
+                <span id="texto-curtir">Curtir</span>
+            </button>
+            <span class="count-likes"><strong id="contador-curtidas">0</strong> curtidas</span>
+        </div>
+    </main>
+</div>
+
+<script>
+    const btnCurtir = document.getElementById('btn-curtir');
+    const iconeCoracao = document.getElementById('icone-coracao');
+    const textoCurtir = document.getElementById('texto-curtir');
+    const contadorCurtidas = document.getElementById('contador-curtidas');
+
+    let curtiu = false;
+    let totalCurtidas = 0;
+
+    btnCurtir.addEventListener('click', () => {
+        curtiu = !curtiu;
+
+        if (curtiu) {
+            totalCurtidas++;
+            iconeCoracao.classList.remove('fa-regular');
+            iconeCoracao.classList.add('fa-solid');
+            btnCurtir.classList.add('curtido');
+            textoCurtir.textContent = 'Curtido';
+        } else {
+            totalCurtidas--;
+            iconeCoracao.classList.remove('fa-solid');
+            iconeCoracao.classList.add('fa-regular');
+            btnCurtir.classList.remove('curtido');
+            textoCurtir.textContent = 'Curtir';
+        }
+
+        contadorCurtidas.textContent = totalCurtidas;
+    });
+</script>
+
+ </body>
+ </html>
